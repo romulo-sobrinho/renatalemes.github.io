@@ -1,0 +1,699 @@
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:'Inter',sans-serif;
+background:#fff;
+color:#3b2f26;
+line-height:1.8;
+overflow-x:hidden
+}
+
+/* ======================
+   HERO EDITORIAL — COM IMAGENS LATERAIS
+   ====================== */
+
+.hero-editorial{
+    position:relative;
+    height:100vh;
+    max-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:linear-gradient(180deg,#fbefe2,#f6dcc1);
+    overflow:hidden;
+}
+
+/* ======================
+   CONTEÚDO CENTRAL
+   ====================== */
+
+.hero-inner{
+    position:relative;
+    z-index:3;
+
+    height:100%;
+    max-height:100%;
+    width:100%;
+    max-width:900px;
+
+    padding:32px 20px 28px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-between;
+
+    text-align:center;
+}
+
+/* LOGO */
+.logo-master{
+    width:560px;
+    max-width:90%;
+}
+
+/* TEXTO */
+.hero-editorial h1{
+    font-family:'Playfair Display',serif;
+    font-size:54px;
+    line-height:1.15;
+}
+
+.hero-editorial p{
+    font-size:16px;
+    opacity:.75;
+    margin-top:6px;
+}
+
+.hero-manuscrito{
+    margin-top:10px;
+    font-style:italic;
+    font-size:17px;
+    opacity:.55;
+}
+
+/* SCROLL */
+.scroll-cue{
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    opacity:.45;
+    animation:pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse{
+    0%,100%{opacity:.4}
+    50%{opacity:.8}
+}
+
+/* ======================
+   IMAGENS LATERAIS
+   ====================== */
+
+.hero-side{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:26vw;
+    max-width:300px;
+    height:70vh;
+
+    border-radius:28px;
+    overflow:hidden;
+
+    box-shadow:0 40px 90px rgba(0,0,0,.18);
+
+    z-index:1;
+
+    /* estética autoral */
+    filter:grayscale(35%) contrast(1.05);
+    opacity:.9;
+}
+
+.hero-side img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* ESQUERDA */
+.hero-left{
+    left:6vw;
+    transform:translateY(-50%) rotate(-3deg);
+}
+
+/* DIREITA */
+.hero-right{
+    right:6vw;
+    transform:translateY(-50%) rotate(3deg);
+}
+
+/* ======================
+   MOBILE
+   ====================== */
+@media(max-width:900px){
+
+    .hero-side{
+        display:none;
+    }
+
+    .logo-master{
+        width:320px;
+    }
+
+    .hero-editorial h1{
+        font-size:34px;
+    }
+
+    .hero-manuscrito{
+        font-size:15px;
+    }
+}
+
+/* ======================
+   BOTÃO PADRÃO
+   ====================== */
+.btn-luz{
+margin-top:32px;
+display:inline-block;
+padding:16px 48px;
+border-radius:50px;
+background:linear-gradient(135deg,#e4c590,#cfa66a);
+color:#3b2f26;
+text-decoration:none;
+box-shadow:0 20px 45px rgba(0,0,0,.25);
+transition:.4s
+}
+.btn-luz:hover{
+transform:translateY(-4px);
+box-shadow:0 30px 70px rgba(0,0,0,.35)
+}
+
+/* ======================
+   WHATSAPP FIXO
+   ====================== */
+.whatsapp-fixo{
+    position:fixed;
+    bottom:28px;
+    right:28px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#25D366,#1fa855);
+    box-shadow:0 12px 28px rgba(0,0,0,.28);
+    z-index:999;
+    transition:.3s;
+}
+.whatsapp-fixo svg{
+    width:28px;
+    height:28px;
+    fill:#fff;
+}
+.whatsapp-fixo:hover{
+    transform:translateY(-4px) scale(1.05);
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+}
+
+/* ======================
+   SOBRE
+   ====================== */
+.sobre-intro{
+    position:relative;
+    background:linear-gradient(180deg,#fffdf9,#f6ecdf);
+}
+
+.sobre-cover{
+    position:relative;
+    height:70vh;
+    overflow:hidden;
+}
+
+.sobre-bg{
+    position:absolute;
+    inset:0;
+    background-size:cover;
+    background-position:center 35%;
+    transform:scale(1.1);
+    transition:transform 2.5s ease;
+}
+
+.sobre-cover.ativo .sobre-bg{
+    transform:scale(1);
+}
+
+.sobre-conteudo{
+    max-width:900px;
+    margin:-160px auto 0;
+    padding:0 20px 200px;
+    position:relative;
+    z-index:2;
+}
+
+.sobre-texto{
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(6px);
+    padding:80px;
+    border-radius:28px;
+    box-shadow:0 40px 90px rgba(0,0,0,.12);
+    text-align:center;
+}
+
+.sobre-texto h2{
+    font-family:'Playfair Display',serif;
+    font-size:46px;
+}
+
+.sobre-subtitulo{
+    display:block;
+    margin:18px 0 40px;
+    font-size:14px;
+    letter-spacing:1px;
+    opacity:.7;
+}
+
+.sobre-texto p{
+    font-size:17px;
+    margin-bottom:26px;
+}
+
+/* ======================
+   INTRODUÇÃO DOS CAPÍTULOS
+   ====================== */
+.intro-capitulos{
+    position:relative;
+    padding:180px 20px 220px;
+    text-align:center;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at top, rgba(255,255,255,0.6), transparent 70%),
+        linear-gradient(180deg,#fffdf9,#f6ecdf);
+}
+
+.intro-capitulos-conteudo{
+    max-width:820px;
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+.intro-eyebrow{
+    display:block;
+    margin-bottom:30px;
+    font-size:13px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    opacity:.6;
+}
+
+.intro-capitulos h2{
+    font-family:'Playfair Display',serif;
+    font-size:46px;
+    line-height:1.25;
+    margin-bottom:40px;
+}
+
+.intro-capitulos p{
+    font-size:18px;
+    opacity:.85;
+}
+
+/* ======================
+   MINI IMAGENS — ESTILO ÁLBUM
+   ====================== */
+.intro-img{
+    position:absolute;
+    object-fit:cover;
+    border-radius:18px;
+    box-shadow:0 25px 50px rgba(0,0,0,.18);
+    opacity:.9;
+    z-index:1;
+
+    /* efeitos autorais */
+    filter:grayscale(40%) contrast(1.05);
+    border:1px solid rgba(255,255,255,.45);
+
+    transition:transform 1.4s cubic-bezier(.19,1,.22,1);
+}
+
+/* TAMANHOS VARIADOS */
+.intro-img.top-left{
+    width:140px;height:200px;
+    top:50px;left:50px;
+    transform:rotate(-6deg);
+}
+
+.intro-img.top-right{
+    width:170px;height:240px;
+    top:70px;right:50px;
+    transform:rotate(6deg);
+}
+
+.intro-img.bottom-left{
+    width:160px;height:220px;
+    bottom:70px;left:70px;
+    transform:rotate(5deg);
+}
+
+.intro-img.bottom-right{
+    width:150px;height:210px;
+    bottom:50px;right:70px;
+    transform:rotate(-5deg);
+}
+
+/* MICRO INTERAÇÃO */
+.intro-capitulos:hover .top-left{
+    transform:rotate(-4deg) translate(6px,6px);
+}
+.intro-capitulos:hover .top-right{
+    transform:rotate(4deg) translate(-6px,6px);
+}
+.intro-capitulos:hover .bottom-left{
+    transform:rotate(3deg) translate(6px,-6px);
+}
+.intro-capitulos:hover .bottom-right{
+    transform:rotate(-3deg) translate(-6px,-6px);
+}
+
+/* ESCONDE NO MOBILE */
+@media(max-width:900px){
+    .intro-img{display:none}
+}
+
+/* ======================
+   CAPÍTULOS
+   ====================== */
+.capitulo{
+padding:200px 20px;
+text-align:center
+}
+
+.cap-espera{
+background:linear-gradient(180deg,#fff9f2,#f4e8da)
+}
+.cap-trabalho{
+background:linear-gradient(180deg,#f7e3d2,#edd1b7)
+}
+.cap-nascimento{
+background:linear-gradient(180deg,#fff4dc,#ffe2b8)
+}
+.cap-encontro{
+background:linear-gradient(180deg,#ffffff,#faf6f0)
+}
+
+/* ======================
+   TEXTO
+   ====================== */
+.texto{
+font-family:'Playfair Display',serif;
+font-size:32px;
+margin-bottom:120px
+}
+
+/* ======================
+   ÁLBUM
+   ====================== */
+.album{max-width:1600px;margin:auto}
+
+.linha{
+display:flex;
+justify-content:center;
+gap:80px;
+margin-top:120px
+}
+
+.linha.invertida{flex-direction:row-reverse}
+
+.foto{
+overflow:hidden;
+border-radius:22px;
+box-shadow:0 40px 90px rgba(0,0,0,.12);
+cursor:pointer;
+background:#fff
+}
+
+.foto img{
+width:100%;
+height:100%;
+object-fit:cover
+}
+
+.grande{width:80%;margin:auto}
+.larga{width:75%;margin:auto}
+.central{width:60%;margin:auto}
+.media{width:460px}
+.vertical{width:360px;height:520px}
+.pequena{width:300px}
+.final{width:90%;margin:auto}
+
+/* ======================
+   PARCEIROS
+   ====================== */
+
+.parceiros{
+    background:
+        radial-gradient(circle at top, rgba(255,255,255,0.6), transparent 70%),
+        linear-gradient(180deg,#fff9f2,#f3e8dc);
+}
+
+.parceiros-titulo{
+    font-family:'Playfair Display',serif;
+    font-size:42px;
+    text-align:center;
+}
+
+.parceiros-subtitulo{
+    max-width:700px;
+    margin:30px auto 100px;
+    text-align:center;
+    font-size:16px;
+    opacity:.75;
+}
+
+.grid-parceiros{
+    display:flex;
+    justify-content:center;
+    gap:80px;
+    flex-wrap:wrap;
+}
+
+.parceiro{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-decoration:none;
+    color:#3b2f26;
+    transition:.4s;
+}
+
+.parceiro img{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    object-fit:cover;
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+    margin-bottom:25px;
+    transition:.4s;
+}
+
+.parceiro .nome{
+    font-weight:500;
+    margin-bottom:4px;
+}
+
+.parceiro .local{
+    font-size:14px;
+    opacity:.7;
+}
+
+.parceiro:hover img{
+    transform:translateY(-8px) scale(1.05);
+    box-shadow:0 30px 60px rgba(0,0,0,.25);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .grid-parceiros{
+        gap:50px;
+    }
+
+    .parceiro img{
+        width:120px;
+        height:120px;
+    }
+
+}
+
+
+/* ======================
+   AUTORA — COM FOTO
+   ====================== */
+.autora-premium{
+margin: 100px 0 60px 0;
+}
+
+.autora-conteudo{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    gap:120px;
+    justify-content:center;
+}
+
+/* FOTO */
+.autora-foto{
+    flex-shrink:0;
+}
+
+.autora-foto img{
+    width:360px;
+    height:460px;
+    object-fit:cover;
+    border-radius:28px;
+    box-shadow:0 30px 70px rgba(0,0,0,.18);
+
+    /* estética autoral */
+    filter:grayscale(20%) contrast(1.05);
+}
+
+/* TEXTO */
+.autora-texto{
+    max-width:520px;
+    text-align:left;
+    text-align: center;
+}
+
+.autora-texto h2{
+    font-family:'Playfair Display',serif;
+    font-size:48px;
+}
+
+.autora-texto p{
+    margin-top:20px;
+    font-size:17px;
+    line-height:1.9;
+}
+
+/* BOTÕES */
+.autora-texto .botoes-autora{
+    margin-top:40px;
+}
+
+.botoes-autora{
+margin-top:50px;
+display: flex;
+justify-content: center;
+}
+
+.botoes-autora a{
+margin:0 15px;
+padding:14px 34px;
+border:1px solid #cfa66a;
+color:#cfa66a;
+text-decoration:none;
+border-radius:40px;
+transition:.35s
+}
+
+.botoes-autora a:hover{
+background:#cfa66a;
+color:#fff
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+    .autora-conteudo{
+        flex-direction:column;
+        gap:60px;
+        text-align:center;
+    }
+
+    .autora-foto img{
+        width:280px;
+        height:360px;
+    }
+
+    .autora-texto{
+        text-align:center;
+    }
+
+}
+
+
+/* ======================
+   LIGHTBOX
+   ====================== */
+.lightbox{
+position:fixed;
+top:0;left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.92);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:1000
+}
+
+.lightbox img{
+max-width:92%;
+max-height:92%
+}
+
+/* ======================
+   SCROLL REVEAL
+   ====================== */
+.reveal{
+opacity:0;
+transform:translateY(60px);
+transition:1.4s cubic-bezier(.19,1,.22,1)
+}
+
+.reveal.ativo{
+opacity:1;
+transform:none
+}
+
+.left{transform:translateX(-80px)}
+.right{transform:translateX(80px)}
+
+.scale img{
+transform:scale(1.15);
+transition:2.2s
+}
+
+.scale.ativo img{
+transform:scale(1)
+}
+
+.blur img{
+filter:blur(8px);
+transition:2s
+}
+
+.blur.ativo img{
+filter:blur(0)
+}
+
+/* ======================
+   FOOTER
+   ====================== */
+footer{
+padding:60px;
+text-align:center;
+opacity:.6;
+background:#ffffff
+}
+
+/* ======================
+   REVEAL
+   ====================== */
+.reveal{
+opacity:0;
+transform:translateY(60px);
+transition:1.4s cubic-bezier(.19,1,.22,1)
+}
+.reveal.ativo{
+opacity:1;
+transform:none
+}
+
+/* ======================
+   MOBILE
+   ====================== */
+@media(max-width:768px){
+.logo-master{width:320px}
+.hero h1{font-size:38px}
+.texto{font-size:22px}
+.linha{flex-direction:column;gap:40px}
+.grande,.larga,.central,.media,.pequena,.vertical,.final{
+width:100%;height:auto}
+}
