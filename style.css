@@ -338,9 +338,132 @@ box-shadow:0 30px 70px rgba(0,0,0,.35)
     transform:rotate(-3deg) translate(-6px,-6px);
 }
 
-/* ESCONDE NO MOBILE */
-@media(max-width:900px){
-    .intro-img{display:none}
+/* ======================
+   TABLET
+   ====================== */
+@media(max-width:1024px){
+
+    .intro-img{
+        opacity:.8;
+    }
+
+    .intro-img.top-left,
+    .intro-img.bottom-left{
+        left:24px;
+    }
+
+    .intro-img.top-right,
+    .intro-img.bottom-right{
+        right:24px;
+    }
+}
+
+/* ======================
+   TRANSIÇÃO EDITORIAL — TABLET PEQUENO
+   (768px até ~574px)
+   ====================== */
+@media (max-width: 768px) and (min-width: 575px){
+
+    .intro-capitulos{
+        padding:140px 20px 160px;
+    }
+
+    /* texto um pouco menor */
+    .intro-capitulos h2{
+        font-size:38px;
+    }
+
+    /* imagens ainda ABSOLUTAS, mas mais contidas */
+    .intro-img{
+        opacity:.85;
+    }
+
+    .intro-img.top-left{
+        width:130px;
+        height:190px;
+        top:40px;
+        left:24px;
+        transform:rotate(-4deg);
+    }
+
+    .intro-img.top-right{
+        width:150px;
+        height:210px;
+        top:60px;
+        right:24px;
+        transform:rotate(4deg);
+    }
+
+    .intro-img.bottom-left{
+        width:145px;
+        height:205px;
+        bottom:60px;
+        left:32px;
+        transform:rotate(3deg);
+    }
+
+    .intro-img.bottom-right{
+        width:140px;
+        height:200px;
+        bottom:50px;
+        right:32px;
+        transform:rotate(-3deg);
+    }
+}
+
+
+/* ======================
+   MOBILE — MINI ÁLBUM
+   ====================== */
+@media(max-width:574px){
+
+    .intro-capitulos{
+        padding:120px 16px 140px;
+    }
+
+    .intro-capitulos h2{
+        font-size:34px;
+    }
+
+    /* REMOVE POSICIONAMENTO ABSOLUTO */
+    .intro-img{
+        position:relative;
+        width:42%;
+        height:200px;
+        margin:0;
+        opacity:.95;
+        transform:none;
+        filter:grayscale(20%) contrast(1.05);
+    }
+
+    /* CONTAINER VISUAL */
+    .intro-capitulos::after{
+        content:'';
+        display:block;
+        margin-top:48px;
+    }
+
+    /* ORGANIZA COMO ÁLBUM */
+    .intro-img.top-left,
+    .intro-img.top-right,
+    .intro-img.bottom-left,
+    .intro-img.bottom-right{
+        display:inline-block;
+    }
+
+    .intro-img.top-left{transform:rotate(-4deg)}
+    .intro-img.top-right{transform:rotate(3deg)}
+    .intro-img.bottom-left{transform:rotate(2deg)}
+    .intro-img.bottom-right{transform:rotate(-3deg)}
+
+    /* LINHA DE FOTOS */
+    .intro-capitulos{
+        text-align:center;
+    }
+
+    .intro-capitulos > .intro-img{
+        margin:24px 8px 0;
+    }
 }
 
 /* ======================
