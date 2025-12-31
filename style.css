@@ -16,7 +16,7 @@ overflow-x:hidden
 .hero-editorial{
     position:relative;
     height:100vh;
-    max-height:100vh;
+    /* max-height:100vh; */
 
     display:flex;
     align-items:center;
@@ -228,19 +228,22 @@ overflow-x:hidden
 
         width:44%;
         max-width:180px;
-        height:220px;
+        height:180px;
 
         border-radius:22px;
-        margin-top:36px;
+        margin-top:20px;
 
         filter:grayscale(20%) contrast(1.05);
         opacity:.95;
     }
 
     /* WRAP DAS DUAS IMAGENS */
-    .hero-left,
+    .hero-left{
+        transform:rotate(-3deg) translate(-6px,-6px);
+    }
+
     .hero-right{
-        transform:none;
+        transform:rotate(3deg) translate(6px,6px);
     }
 
     .hero-side img{
