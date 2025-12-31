@@ -243,6 +243,10 @@ overflow-x:hidden
         transform:none;
     }
 
+    .hero-side img{
+        object-position: center;
+    }
+
     .hero-editorial{
         display:flex;
         flex-direction:column;
