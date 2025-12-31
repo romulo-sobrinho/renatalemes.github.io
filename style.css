@@ -489,7 +489,19 @@ box-shadow:0 30px 70px rgba(0,0,0,.35)
     width:150px;height:210px;
     bottom:50px;right:70px;
     transform:rotate(-5deg);
+    object-fit: cover;
+
+    /* cresce a imagem */
+    transform: scale(1.25);
+
+    /* puxa o enquadramento para a esquerda e para cima */
+    object-position: 10% 20%;
 }
+
+.intro-img.bottom-right img{
+    transform: scale(1.25);
+}
+
 
 /* MICRO INTERAÇÃO */
 .intro-capitulos:hover .top-left{
