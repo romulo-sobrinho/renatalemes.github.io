@@ -131,6 +131,156 @@ overflow-x:hidden
     transform:translateY(-50%) rotate(3deg);
 }
 
+/* ======================================================
+   HERO — RESPONSIVO EDITORIAL DEFINITIVO
+   ====================================================== */
+
+/* ===== TABLET ===== */
+@media (max-width: 1024px){
+
+    .hero-editorial{
+        overflow:hidden;
+    }
+
+    .hero-side{
+        width:32vw;
+        max-width:260px;
+        height:55vh;
+        opacity:.9;
+    }
+
+    .hero-left{
+        left:2vw;
+        transform:translateY(-50%) rotate(-3deg);
+    }
+
+    .hero-right{
+        right:2vw;
+        transform:translateY(-50%) rotate(3deg);
+    }
+
+    .logo-master{
+        width:420px;
+    }
+
+    .hero-editorial h1{
+        font-size:42px;
+    }
+}
+
+
+/* ===== CELULAR ===== */
+@media (max-width: 768px){
+
+    html, body{
+        overflow-x:hidden;
+    }
+
+    .hero-editorial{
+        height:auto;
+        padding:70px 0 40px;
+    }
+
+    /* CONTEÚDO CENTRAL */
+    .hero-inner{
+        width:100%;
+        max-width:100%;
+        padding:0 20px;
+
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:flex-start;
+
+        text-align:center;
+        position:relative;
+        z-index:2;
+    }
+
+    .logo-master{
+        width:280px;
+        margin-bottom:28px;
+    }
+
+    .hero-editorial h1{
+        font-size:32px;
+        line-height:1.25;
+    }
+
+    .hero-editorial p{
+        font-size:15px;
+        opacity:.75;
+        margin-top:6px;
+    }
+
+    .hero-manuscrito{
+        font-size:14px;
+        opacity:.6;
+        margin-top:10px;
+    }
+
+    /* CONTAINER DAS IMAGENS (ABAIXO DO TEXTO) */
+    .hero-side{
+        position:relative;
+        top:auto;
+        left:auto;
+        right:auto;
+
+        width:44%;
+        max-width:180px;
+        height:220px;
+
+        border-radius:22px;
+        margin-top:36px;
+
+        filter:grayscale(20%) contrast(1.05);
+        opacity:.95;
+    }
+
+    /* WRAP DAS DUAS IMAGENS */
+    .hero-left,
+    .hero-right{
+        transform:none;
+    }
+
+    .hero-editorial{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    /* AGRUPA AS IMAGENS */
+    .hero-editorial > .hero-side{
+        display:inline-block;
+    }
+
+    .hero-editorial > .hero-side + .hero-side{
+        margin-left:16px;
+    }
+
+    /* SCROLL */
+    .scroll-cue{
+        margin-top:40px;
+    }
+}
+/* ======================================================
+   MICRO EFEITOS FUTURISTAS (TOQUE & SCROLL)
+   ====================================================== */
+
+/* efeito sutil ao tocar */
+.hero-side img{
+    transition:transform 1.2s cubic-bezier(.19,1,.22,1),
+               filter 1.2s cubic-bezier(.19,1,.22,1);
+}
+
+/* toque / hover híbrido */
+.hero-side:active img,
+.hero-side:hover img{
+    transform:scale(1.04);
+    filter:grayscale(0%) contrast(1.05);
+}
+
+
 /* ======================
    BOTÃO PADRÃO
    ====================== */
@@ -797,153 +947,4 @@ transform:none
 .linha{flex-direction:column;gap:40px}
 .grande,.larga,.central,.media,.pequena,.vertical,.final{
 width:100%;height:auto}
-}
-
-/* ======================================================
-   HERO — RESPONSIVO EDITORIAL DEFINITIVO
-   ====================================================== */
-
-/* ===== TABLET ===== */
-@media (max-width: 1024px){
-
-    .hero-editorial{
-        overflow:hidden;
-    }
-
-    .hero-side{
-        width:32vw;
-        max-width:260px;
-        height:55vh;
-        opacity:.9;
-    }
-
-    .hero-left{
-        left:2vw;
-        transform:translateY(-50%) rotate(-3deg);
-    }
-
-    .hero-right{
-        right:2vw;
-        transform:translateY(-50%) rotate(3deg);
-    }
-
-    .logo-master{
-        width:420px;
-    }
-
-    .hero-editorial h1{
-        font-size:42px;
-    }
-}
-
-
-/* ===== CELULAR ===== */
-@media (max-width: 768px){
-
-    html, body{
-        overflow-x:hidden;
-    }
-
-    .hero-editorial{
-        height:auto;
-        padding:70px 0 40px;
-    }
-
-    /* CONTEÚDO CENTRAL */
-    .hero-inner{
-        width:100%;
-        max-width:100%;
-        padding:0 20px;
-
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        justify-content:flex-start;
-
-        text-align:center;
-        position:relative;
-        z-index:2;
-    }
-
-    .logo-master{
-        width:280px;
-        margin-bottom:28px;
-    }
-
-    .hero-editorial h1{
-        font-size:32px;
-        line-height:1.25;
-    }
-
-    .hero-editorial p{
-        font-size:15px;
-        opacity:.75;
-        margin-top:6px;
-    }
-
-    .hero-manuscrito{
-        font-size:14px;
-        opacity:.6;
-        margin-top:10px;
-    }
-
-    /* CONTAINER DAS IMAGENS (ABAIXO DO TEXTO) */
-    .hero-side{
-        position:relative;
-        top:auto;
-        left:auto;
-        right:auto;
-
-        width:44%;
-        max-width:180px;
-        height:220px;
-
-        border-radius:22px;
-        margin-top:36px;
-
-        filter:grayscale(20%) contrast(1.05);
-        opacity:.95;
-    }
-
-    /* WRAP DAS DUAS IMAGENS */
-    .hero-left,
-    .hero-right{
-        transform:none;
-    }
-
-    .hero-editorial{
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-    }
-
-    /* AGRUPA AS IMAGENS */
-    .hero-editorial > .hero-side{
-        display:inline-block;
-    }
-
-    .hero-editorial > .hero-side + .hero-side{
-        margin-left:16px;
-    }
-
-    /* SCROLL */
-    .scroll-cue{
-        margin-top:40px;
-    }
-}
-/* ======================================================
-   MICRO EFEITOS FUTURISTAS (TOQUE & SCROLL)
-   ====================================================== */
-
-/* efeito sutil ao tocar */
-.hero-side img{
-    transition:transform 1.2s cubic-bezier(.19,1,.22,1),
-               filter 1.2s cubic-bezier(.19,1,.22,1);
-}
-
-/* toque / hover híbrido */
-.hero-side:active img,
-.hero-side:hover img{
-    transform:scale(1.04);
-    filter:grayscale(0%) contrast(1.05);
 }
