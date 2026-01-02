@@ -207,58 +207,70 @@ body{
     overflow-y: auto;
 }
 
-    .livro-capa{
+   .livro-capa{
         height: 100svh;
         width: 100vw;
 
-        padding: 16px 14px;
+        padding: 5px 6px; /* 🔥 menos respiro */
+        gap: 4px;           /* 🔥 aproxima blocos */
 
         display: flex;
         flex-direction: column;
-        justify-content: space-between; /* 🔥 distribui tudo */
+        justify-content: space-between;
         align-items: center;
 
         overflow: hidden;
     }
 
     .capa-bebe{
-        width:180px;
-        height:180px;
+        width:150px;
+        height:150px;
         flex: none;              /* 🔥 REMOVE flex-basis do desktop */
         aspect-ratio: 1 / 1;     /* 🔥 GARANTE QUADRADO */
         transform: rotate(-2deg);
     }
 
      .logo-master{
-        width:280px;
-        margin-top: 8px;
-        margin-bottom:8px;
+        width:220px;
+        margin:0px;
     }
 
     .album-eyebrow{
-        font-size: 11px;
-        margin-bottom: 10px;
-        letter-spacing: 2px;
+        font-size: 10px;
+        letter-spacing: 1.5px;
     }
 
     .album-intro h1{
-        font-size: 26px;
-        line-height: 1.2;
+        font-size: 14px;
+        line-height: 1;
+        margin: 0;
     }
 
     .album-texto{
-        font-size: 13px;
-        line-height: 1.5;
-        margin-top: 14px;
+        font-size: 10px;
+        line-height: 1.15;
+        margin-top: 0px;
     }
 
     .album-orientacao{
-        margin-top: 18px;
-        font-size: 10px;
-        letter-spacing: 1.5px;
+        margin-top: 10px;
+        font-size: 7px;
+        letter-spacing: 1.2px;
         opacity: .6;
     }
 }
+
+@media (max-height: 680px){
+    .capa-bebe{
+        width: 130px;
+        height: 130px;
+    }
+
+    .album-intro h1{
+        font-size: 20px;
+    }
+}
+
 
 /* ======================
    TOPO DO ÁLBUM
