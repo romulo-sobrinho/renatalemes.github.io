@@ -60,6 +60,8 @@ window.addEventListener('wheel', (e) => {
             liberarScroll();
             estado = 'album';
             bloqueio = false;
+
+            ativarMusicaAlbum();
         }, 1200);
     }
 
@@ -77,6 +79,48 @@ window.addEventListener('wheel', (e) => {
         }, 100);
     }
 });
+
+/* ======================
+   PLAYER MUSICAL
+   ====================== */
+
+const musica = document.getElementById('musicaAlbum');
+const btnMusica = document.getElementById('btnMusica');
+const player = document.getElementById('playerAlbum');
+
+musica.volume = 0.35;
+musica.preload = 'auto';
+musica.load();
+
+let tocando = false;
+
+// Play / Pause manual
+btnMusica.addEventListener('click', () => {
+    if(tocando){
+        musica.pause();
+        btnMusica.innerText = '▶';
+    }else{
+        musica.play();
+        btnMusica.innerText = '❚❚';
+    }
+    tocando = !tocando;
+});
+
+// Ativa player quando a capa vira
+function ativarMusicaAlbum(){
+    player.classList.add('visivel');
+
+    // inicia somente se o usuário interagir depois
+    if(!tocando){
+        musica.play().then(() => {
+            btnMusica.innerText = '❚❚';
+            tocando = true;
+        }).catch(() => {
+            // autoplay bloqueado, ok
+        });
+    }
+}
+
 
 /* ======================
    TETRIS SCROLL EFFECT
