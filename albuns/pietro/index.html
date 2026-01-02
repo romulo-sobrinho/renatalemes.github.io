@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Primeiro Álbum | Renata Lemes</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- BLOQUEIO POR SENHA -->
+<div class="lock-screen" id="lock">
+    <div class="lock-box">
+        <img src="../../imagens/logo.png" class="logo-lock">
+        <h2>Álbum privado</h2>
+        <p>Digite a senha para acessar</p>
+        <input type="password" id="senha" placeholder="Senha">
+        <span class="erro" id="erro"></span>
+        </br>
+        <button onclick="verificarSenha()">Entrar</button>
+    </div>
+</div>
+
+<!-- SITE -->
+<div class="site" id="site">
+
+    <!-- TOPO -->
+  <header class="album-intro livro-capa" id="livroCapa">
+
+    <!-- FOTO DE CAPA -->
+    <figure class="capa-bebe">
+        <img src="imagens/foto_capa.jpg" alt="Capa do álbum do bebê">
+    </figure>
+
+    <!-- CONTEÚDO -->
+    <div class="album-intro-conteudo">
+
+        <img src="../../imagens/logo.png" class="logo-master">
+
+        <span class="album-eyebrow">
+            Um começo que muda tudo
+        </span>
+
+        <h1>
+            <strong>Pietro</strong>,<br>
+            este é o início da sua história.
+        </h1>
+
+        <p class="album-texto">
+            Cada fotografia aqui carrega silêncio, cuidado e amor.<br>
+            Este álbum não mostra apenas um nascimento.<br>
+            Ele guarda o primeiro encontro.
+        </p>
+
+        <span class="album-orientacao">
+            Role para virar a página
+        </span>
+
+    </div>
+
+</header>
+
+    <main class="album-grid-20">
+
+    <!-- FOTO VERTICAL GIGANTE -->
+    <figure class="foto g1"><img src="imagens/foto01.jpg"></figure>
+
+    <!-- COLUNA DE MINI FOTOS (6 x 1 COLUNA) -->
+    <figure class="foto g2"><img src="imagens/foto02.jpg"></figure>
+    <figure class="foto g3"><img src="imagens/foto03.jpg"></figure>
+    <figure class="foto g4"><img src="imagens/foto04.jpg"></figure>
+    <figure class="foto g5"><img src="imagens/foto05.jpg"></figure>
+    <figure class="foto g6"><img src="imagens/foto06.jpg"></figure>
+    <figure class="foto g7"><img src="imagens/foto07.jpg"></figure>
+
+    <!-- QUADRADAS -->
+    <figure class="foto g8"><img src="imagens/foto08.jpg"></figure>
+    <figure class="foto g9"><img src="imagens/foto09.jpg"></figure>
+    <figure class="foto g10"><img src="imagens/foto10.jpg"></figure>
+    <figure class="foto g11"><img src="imagens/foto11.jpg"></figure>
+
+    <!-- RETANGULARES -->
+    <figure class="foto g12"><img src="imagens/foto12.jpg"></figure>
+    <figure class="foto g13"><img src="imagens/foto13.jpg"></figure>
+    <figure class="foto g14"><img src="imagens/foto14.jpg"></figure>
+    <figure class="foto g15"><img src="imagens/foto15.jpg"></figure>
+
+    <!-- NORMAIS -->
+    <figure class="foto g16"><img src="imagens/foto16.jpg"></figure>
+    <figure class="foto g17"><img src="imagens/foto17.jpg"></figure>
+    <figure class="foto g18"><img src="imagens/foto18.jpg"></figure>
+
+</main>
+
+    <!-- GRID EDITORIAL 13 COLUNAS -->
+<main class="album-grid editorial-13">
+
+    <figure class="foto f1"><img src="imagens/foto19.jpg"></figure>
+
+    <figure class="foto f2"><img src="imagens/foto20.jpg"></figure>
+    <figure class="foto f3"><img src="imagens/foto21.jpg"></figure>
+    <figure class="foto f4"><img src="imagens/foto22.jpg"></figure>
+
+    <figure class="foto f5"><img src="imagens/foto23.jpg"></figure>
+    <figure class="foto f6"><img src="imagens/foto24.jpg"></figure>
+    <figure class="foto f7"><img src="imagens/foto25.jpg"></figure>
+    <figure class="foto f8"><img src="imagens/foto26.jpg"></figure>
+
+    <figure class="foto f9"><img src="imagens/foto27.jpg"></figure>
+    <figure class="foto f10"><img src="imagens/foto28.jpg"></figure>
+    <figure class="foto f11"><img src="imagens/foto29.jpg"></figure>
+    <figure class="foto f12"><img src="imagens/foto30.jpg"></figure>
+
+    <figure class="foto f13"><img src="imagens/foto31.jpg"></figure>
+
+</main>
+
+    <!-- AUTORA -->
+    <section class="autora-premium">
+        <div class="autora-conteudo">
+
+            <figure class="autora-foto">
+                <img src="../../imagens/autora-renata.jpeg">
+            </figure>
+
+            <div class="autora-texto">
+                <h2>Renata Lemes</h2>
+                <p>
+                    Fotógrafa especializada em partos e nascimentos.<br>
+                    Presença silenciosa, olhar sensível e respeito absoluto.
+                </p>
+
+                <div class="botoes-autora">
+                    <a href="https://instagram.com/renatalemesfotografia" target="_blank">Instagram</a>
+                    <a href="mailto:renata@renatalemes.com.br">E-mail</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        © 2026 · Renata Lemes · Fotografia de Parto · Brasília
+    </footer>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+    <img src="">
+</div>
+
+<!-- Para conferir a senha hash -->
+<script src="https://cdn.jsdelivr.net/npm/js-sha256@0.9.0/src/sha256.min.js"></script> 
+<script src="script.js"></script>
+
+</body>
+</html>
