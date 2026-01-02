@@ -1,144 +1,29 @@
+/* ======================
+   SENHA (HASH)
+====================== */
+
 function verificarSenha(){
     const senhaDigitada = document.getElementById("senha").value;
     const erro = document.getElementById("erro");
 
-    // HASH da senha correta (SHA-256)
     const hashCorreto = "2247e5220afca9ea353825b35cac99f04b381def839681e1962be220dfc3243e";
-
     const hashDigitado = sha256(senhaDigitada);
 
     if(hashDigitado === hashCorreto){
         document.getElementById("lock").style.display = "none";
         document.getElementById("site").style.display = "block";
         erro.innerText = "";
+
+        iniciarMusica();
     }else{
         erro.innerText = "Senha incorreta";
     }
 }
 
 
-// LIGHTBOX
-document.querySelectorAll(".foto img").forEach(img=>{
-    img.addEventListener("click",()=>{
-        document.querySelector(".lightbox img").src = img.src;
-        document.querySelector(".lightbox").style.display="flex";
-    });
-});
-
-document.querySelector(".lightbox").addEventListener("click",()=>{
-    document.querySelector(".lightbox").style.display="none";
-});
-
-const capa = document.getElementById('livroCapa');
-const autora = document.querySelector('.autora-premium');
-
-let estado = 'capa'; // capa | album | autora
-let bloqueio = false;
-
-function bloquearScroll(){
-    document.body.style.overflowY = 'hidden';
-}
-
-function liberarScroll(){
-    document.body.style.overflowY = 'auto';
-}
-
-bloquearScroll();
-
-/* SCROLL PRINCIPAL */
-window.addEventListener('wheel', (e) => {
-
-    if(bloqueio) return;
-
-    /* ↓ VIRA CAPA */
-    if(estado === 'capa' && e.deltaY > 0){
-        bloqueio = true;
-        capa.classList.add('fechar');
-
-        setTimeout(() => {
-            capa.style.display = 'none';
-            liberarScroll();
-            estado = 'album';
-            bloqueio = false;
-
-            ativarMusicaAlbum();
-        }, 1200);
-    }
-
-    /* ↑ VOLTA CAPA */
-    if(estado === 'album' && e.deltaY < 0 && window.scrollY === 0){
-        bloqueio = true;
-        capa.style.display = 'flex';
-        capa.classList.remove('fechar');
-
-        bloquearScroll();
-
-        setTimeout(() => {
-            estado = 'capa';
-            bloqueio = false;
-        }, 100);
-    }
-});
-
 /* ======================
-   SWIPE (MOBILE / TABLET)
-   ====================== */
-
-let touchStartY = 0;
-let touchEndY = 0;
-const swipeThreshold = 80; // distância mínima do gesto
-
-window.addEventListener('touchstart', (e) => {
-    touchStartY = e.touches[0].clientY;
-}, { passive: true });
-
-window.addEventListener('touchmove', (e) => {
-    touchEndY = e.touches[0].clientY;
-}, { passive: true });
-
-window.addEventListener('touchend', () => {
-    const deltaY = touchStartY - touchEndY;
-
-    if(bloqueio) return;
-
-    /* SWIPE UP → VIRA CAPA */
-    if(estado === 'capa' && deltaY > swipeThreshold){
-        bloqueio = true;
-        capa.classList.add('fechar');
-
-        setTimeout(() => {
-            capa.style.display = 'none';
-            liberarScroll();
-            estado = 'album';
-            bloqueio = false;
-
-            ativarMusicaAlbum();
-        }, 1200);
-    }
-
-    /* SWIPE DOWN → VOLTA CAPA (opcional) */
-    if(
-        estado === 'album' &&
-        deltaY < -swipeThreshold &&
-        window.scrollY === 0
-    ){
-        bloqueio = true;
-        capa.style.display = 'flex';
-        capa.classList.remove('fechar');
-
-        bloquearScroll();
-
-        setTimeout(() => {
-            estado = 'capa';
-            bloqueio = false;
-        }, 100);
-    }
-});
-
-
-/* ======================
-   PLAYER MUSICAL
-   ====================== */
+   PLAYER MUSICAL (AUTO)
+====================== */
 
 const musica = document.getElementById('musicaAlbum');
 const btnMusica = document.getElementById('btnMusica');
@@ -146,9 +31,19 @@ const player = document.getElementById('playerAlbum');
 
 musica.volume = 0.35;
 musica.preload = 'auto';
-musica.load();
 
 let tocando = false;
+
+function iniciarMusica(){
+    player.classList.add('visivel');
+
+    musica.play().then(() => {
+        btnMusica.innerText = '❚❚';
+        tocando = true;
+    }).catch(() => {
+        // autoplay pode ser bloqueado — botão resolve
+    });
+}
 
 // Play / Pause manual
 btnMusica.addEventListener('click', () => {
@@ -162,64 +57,45 @@ btnMusica.addEventListener('click', () => {
     tocando = !tocando;
 });
 
-// Ativa player quando a capa vira
-function ativarMusicaAlbum(){
-    player.classList.add('visivel');
 
-    // inicia somente se o usuário interagir depois
-    if(!tocando){
-        musica.play().then(() => {
-            btnMusica.innerText = '❚❚';
-            tocando = true;
-        }).catch(() => {
-            // autoplay bloqueado, ok
-        });
-    }
-}
+/* ======================
+   LIGHTBOX
+====================== */
+
+document.querySelectorAll(".foto img").forEach(img=>{
+    img.addEventListener("click",()=>{
+        document.querySelector(".lightbox img").src = img.src;
+        document.querySelector(".lightbox").style.display="flex";
+    });
+});
+
+document.querySelector(".lightbox").addEventListener("click",()=>{
+    document.querySelector(".lightbox").style.display="none";
+});
 
 
 /* ======================
-   TETRIS SCROLL EFFECT
-   ====================== */
+   EFEITO TETRIS (SCROLL)
+====================== */
 
 const fotos = document.querySelectorAll('.foto');
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-
-            // delay tipo Tetris
+        if(entry.isIntersecting){
             entry.target.style.transitionDelay = `${index * 70}ms`;
-
             entry.target.classList.add('aparecer');
-            // observer.unobserve(entry.target);
         }
     });
-}, {
-    threshold: 0.15
-});
+}, { threshold: 0.15 });
 
 fotos.forEach(foto => observer.observe(foto));
 
 
-/* DETECTA SEÇÃO AUTORA */
-window.addEventListener('scroll', () => {
+/* ======================
+   BRILHO DA CAPA
+====================== */
 
-    if(!autora) return;
-
-    const topoAutora = autora.getBoundingClientRect().top;
-
-    if(topoAutora < window.innerHeight * 0.4){
-        estado = 'autora';
-    }
-
-    if(estado === 'autora' && topoAutora > window.innerHeight * 0.8){
-        estado = 'album';
-    }
-});
-
-/* ATIVA BRILHO */
 window.addEventListener('load', () => {
-    capa.classList.add('ativo');
+    document.getElementById('livroCapa').classList.add('ativo');
 });
-

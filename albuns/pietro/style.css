@@ -11,8 +11,7 @@ body{
     font-family:'Inter', sans-serif;
     background:#ffffff;
     color:#3b2f26;
-    overflow-x:hidden;
-    overflow-y:hidden;
+    overflow-y:auto;
 }
 
 /* ======================
@@ -94,13 +93,12 @@ color: red;
    ========================================================= */
 
 .livro-capa{
-    position: fixed;
-    inset: 0;
+    position: relative;
     z-index: 50;
 
-    height: 100svh; /* 🔥 viewport real mobile */
-    padding:120px 30px; /* antes 60px */
-    gap:32px;           /* pode reduzir sem medo */
+    height: 100svh;
+    padding:120px 30px;
+    gap:32px;
 
     display:flex;
     align-items:center;
@@ -110,10 +108,9 @@ color: red;
         radial-gradient(circle at top, rgba(255,255,255,0.6), transparent 65%),
         linear-gradient(180deg,#fffdf9,#f6ecdf);
 
-    overflow:hidden;
-    perspective:1200px;
-    will-change: transform, opacity;
+    overflow: visible; /* 🔥 ESSENCIAL */
 }
+
 
 
 /* ======================
@@ -206,18 +203,15 @@ color: red;
 }
 
 @media (max-width: 768px){
-
-    body{
-        overflow-y: hidden;
-    }
+body{
+    overflow-y: auto;
+}
 
     .livro-capa{
-        height: 100svh;
         padding: 20px 16px;
-        gap: 12px;
 
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
     }
 
@@ -258,64 +252,6 @@ color: red;
     }
 }
 
-
-
-/* =========================================================
-   EFEITO DE VIRAR A PÁGINA (LENTO E PERCEPTÍVEL)
-   ========================================================= */
-
-.livro-capa.fechar{
-    animation:virarPagina 0.8s cubic-bezier(.19,1,.22,1) forwards;
-    transform-origin:left center;
-}
-
-@keyframes virarPagina{
-    0%{
-        transform:translateX(0) rotateY(0deg);
-        opacity:1;
-    }
-    40%{
-        transform:translateX(-20%) rotateY(-12deg);
-        opacity:1;
-    }
-    70%{
-        transform:translateX(-60%) rotateY(-25deg);
-        opacity:.9;
-    }
-    100%{
-        transform:translateX(-120%) rotateY(-35deg);
-        opacity:0;
-    }
-}
-
-/* ======================
-   VOLTAR A PÁGINA (REABRIR)
-   ====================== */
-
-.livro-capa.abrir{
-    animation:voltarPagina 0.8s cubic-bezier(.19,1,.22,1) forwards;
-    transform-origin:left center;
-}
-
-@keyframes voltarPagina{
-    0%{
-        transform:translateX(-120%) rotateY(-35deg);
-        opacity:0;
-    }
-    40%{
-        transform:translateX(-60%) rotateY(-18deg);
-        opacity:.9;
-    }
-    70%{
-        transform:translateX(-20%) rotateY(-6deg);
-        opacity:1;
-    }
-    100%{
-        transform:translateX(0) rotateY(0deg);
-        opacity:1;
-    }
-}
-
 /* ======================
    TOPO DO ÁLBUM
    ====================== */
@@ -346,8 +282,10 @@ color: red;
 
 .player-album{
     position: fixed;
-    bottom: 36px;
-    right: 36px;
+
+    bottom: calc(20px + env(safe-area-inset-bottom));
+    right:  calc(20px + env(safe-area-inset-right));
+
     z-index: 200;
 
     display: flex;
@@ -366,6 +304,7 @@ color: red;
     transform: translateY(20px);
     transition: .6s cubic-bezier(.19,1,.22,1);
 }
+
 
 /* aparece quando álbum começa */
 .player-album.visivel{
@@ -404,12 +343,16 @@ color: red;
 /* MOBILE */
 @media(max-width:768px){
     .player-album{
-        bottom: 20px;
-        right: 20px;
-        padding: 12px 18px;
+        padding: 12px 16px;
+        gap: 12px;
+    }
+
+    .player-album button{
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
     }
 }
-
 
 /* ======================
    INTRO EMOCIONAL DO ÁLBUM
