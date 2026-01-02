@@ -81,6 +81,12 @@ color: red;
     transform:translateY(-2px);
 }
 
+@media (max-width: 768px){
+    .logo-lock{
+        width:180px;
+    }
+}
+
 /* ======================
    SITE (DESBLOQUEADO)
    ====================== */
@@ -187,7 +193,7 @@ color: red;
 }
 
 .album-texto{
-    margin-top:36px;
+    margin-top:22px;
     font-size:18px;
     line-height:1.9;
     opacity:.85;
@@ -403,7 +409,7 @@ body{
 }
 
 .album-texto{
-    margin-top:36px;
+    margin-top:22px;
     font-size:18px;
     line-height:1.9;
     opacity:.85;
