@@ -81,6 +81,62 @@ window.addEventListener('wheel', (e) => {
 });
 
 /* ======================
+   SWIPE (MOBILE / TABLET)
+   ====================== */
+
+let touchStartY = 0;
+let touchEndY = 0;
+const swipeThreshold = 80; // distância mínima do gesto
+
+window.addEventListener('touchstart', (e) => {
+    touchStartY = e.touches[0].clientY;
+}, { passive: true });
+
+window.addEventListener('touchmove', (e) => {
+    touchEndY = e.touches[0].clientY;
+}, { passive: true });
+
+window.addEventListener('touchend', () => {
+    const deltaY = touchStartY - touchEndY;
+
+    if(bloqueio) return;
+
+    /* SWIPE UP → VIRA CAPA */
+    if(estado === 'capa' && deltaY > swipeThreshold){
+        bloqueio = true;
+        capa.classList.add('fechar');
+
+        setTimeout(() => {
+            capa.style.display = 'none';
+            liberarScroll();
+            estado = 'album';
+            bloqueio = false;
+
+            ativarMusicaAlbum();
+        }, 1200);
+    }
+
+    /* SWIPE DOWN → VOLTA CAPA (opcional) */
+    if(
+        estado === 'album' &&
+        deltaY < -swipeThreshold &&
+        window.scrollY === 0
+    ){
+        bloqueio = true;
+        capa.style.display = 'flex';
+        capa.classList.remove('fechar');
+
+        bloquearScroll();
+
+        setTimeout(() => {
+            estado = 'capa';
+            bloqueio = false;
+        }, 100);
+    }
+});
+
+
+/* ======================
    PLAYER MUSICAL
    ====================== */
 
